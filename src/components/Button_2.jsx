@@ -1,6 +1,6 @@
 import { StyledSubmitButton } from "../styles/Styled";
-const Button_Secondary = ({ onClick, name = "Submit Answer" }) => {
+const Button_2 = ({ onClick, name }) => {
   return <StyledSubmitButton onClick={onClick}>{name}</StyledSubmitButton>;
 };
 
-export default Button_Secondary;
+export default Button_2;

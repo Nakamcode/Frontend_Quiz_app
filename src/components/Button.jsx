@@ -1,6 +1,6 @@
 import { StyledButton } from "../styles/Styled";
 
-const Option = ({ option, title = "HTML", icon = "html" }) => {
+const Button = ({ option, title = "HTML", icon = "html" }) => {
   return (
     <StyledButton>
       <div className="ans">
@@ -14,4 +14,4 @@ const Option = ({ option, title = "HTML", icon = "html" }) => {
     </StyledButton>
   );
 };
-export default Option;
+export default Button;

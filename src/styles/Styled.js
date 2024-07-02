@@ -17,6 +17,26 @@ const StyledTitle = styled.div`
   color: black;
 `;
 
+const StyledNavBar = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+
+  > div {
+    flex: 1;
+  }
+  > div:last-child {
+    justify-content: flex-end;
+  }
+`;
+
+const StyledFlexStackColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
 const StyledFlex_center = styled.div`
   display: flex;
   align-items: center;
@@ -184,12 +204,49 @@ const StyledSwitchButton = styled.input`
     transition: all 200ms;
   }
 `;
+
+const StyledWelcomeMessage = styled.div`
+  /* theme */
+  color: black;
+  h1 {
+    font-size: 45px;
+    font-weight: 400;
+  }
+  p {
+    margin-top: 40px;
+    /* theme */
+    color: black;
+  }
+`;
+
+const StyledResult = styled.div`
+  /* theme */
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 40px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+
+  h1 {
+    font-size: 90px;
+    /* theme */
+    color: black;
+  }
+`;
+
 export {
   StyledContainer,
   StyledFlex_center,
+  StyledFlexStackColumn,
+  StyledNavBar,
   StyledProgressBar,
   StyledButton,
   StyledSwitchButton,
   StyledSubmitButton,
   StyledTitle,
+  StyledWelcomeMessage,
+  StyledResult,
 };
