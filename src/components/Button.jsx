@@ -23,7 +23,7 @@ const Option = ({
             {option}
           </div>
         ) : (
-          <img src={`./src/assets/${icon}.svg`} alt={`${icon} icon`} />
+          <img src={`./src/assets/icons/${icon}.svg`} alt={`${icon} icon`} />
         )}
         {title}
       </div>
@@ -34,7 +34,7 @@ const Option = ({
             className={`${correctAnswer === index ? "correct" : status} check`}
           >
             <img
-              src={`./src/assets/${
+              src={`./src/assets/icons/${
                 correctAnswer === index ? "correct" : status
               }.svg`}
             />

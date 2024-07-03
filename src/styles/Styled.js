@@ -175,7 +175,7 @@ const StyledSubmitButton = styled.button`
   font-weight: 600;
   border: none;
   border-radius: 15px;
-  box-shadow: 0 16px 40px rgba(143, 160, 193, 0.14);
+  box-shadow: ${(props) => props.theme.boxShadow};
   transition: all 150ms;
 
   &:hover,
