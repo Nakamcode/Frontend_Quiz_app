@@ -1,32 +1,20 @@
 import { GlobalStyles } from "./styles/GlobalStyles";
 import { StyledContainer } from "./styles/Styled";
-import Title from "./components/QuizTitle";
-import SwitchButton from "./components/SwitchButton";
-import ProgressBar from "./components/ProgressBar";
-import Button_2 from "./components/Button_2";
-import Option from "./components/Button";
-import Category from "./components/ui/Category";
 import NavBar from "./components/ui/NavBar";
-import ResultMessage from "./components/ui/ResultMessage";
-import Welcome from "./components/ui/WelcomeMessage";
-import Result from "./components/ui/Result";
+import { StyledGrid } from "./styles/Styled";
+import Side_Col_Question from "./components/ui/Side_Col_Questions";
+import Side_Col_Answer from "./components/ui/Side_Col_Answers";
 
 function App() {
   return (
     <>
       <GlobalStyles />
       <StyledContainer>
-        {/* <Title />
-        <SwitchButton />
-        <ProgressBar />
-        <Option />
-        */}
-        <Button_2 name="Submit Answer" />
         <NavBar />
-        <Category />
-        <Result />
-        <ResultMessage />
-        <Welcome />
+        <StyledGrid>
+          <Side_Col_Question />
+          <Side_Col_Answer />
+        </StyledGrid>
       </StyledContainer>
     </>
   );

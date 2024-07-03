@@ -7,6 +7,17 @@ const StyledContainer = styled.div`
   padding: 20px;
 `;
 
+const StyledGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+
+  @media (max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+  }
+`;
+
 const StyledTitle = styled.div`
   display: flex;
   align-items: center;
@@ -63,16 +74,7 @@ const StyledButton = styled.button`
   color: black;
   border: none;
   border-radius: 15px;
-  /* outline: ${(props) =>
-    props.selected ? `2px solid var(--c1)` : "none"}; */
-  /* box-shadow: ${(props) => props.theme.boxShadow}; */
   transition: all 150ms;
-
-  outline-color: ${(props) => {
-    if (props.status === "correct") return "var(--c8)";
-    if (props.status === "wrong") return "var(--c9)";
-    return "none";
-  }};
 
   .option {
     background-color: #f4f6fa;
@@ -205,6 +207,16 @@ const StyledSwitchButton = styled.input`
   }
 `;
 
+const StyledQuestion = styled.div`
+  /* theme */
+  color: black;
+  p {
+    margin-bottom: 20px;
+    /* theme */
+    color: black;
+  }
+`;
+
 const StyledWelcomeMessage = styled.div`
   /* theme */
   color: black;
@@ -239,6 +251,7 @@ const StyledResult = styled.div`
 
 export {
   StyledContainer,
+  StyledGrid,
   StyledFlex_center,
   StyledFlexStackColumn,
   StyledNavBar,
@@ -247,6 +260,7 @@ export {
   StyledSwitchButton,
   StyledSubmitButton,
   StyledTitle,
+  StyledQuestion,
   StyledWelcomeMessage,
   StyledResult,
 };
