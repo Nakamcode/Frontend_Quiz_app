@@ -1,15 +1,15 @@
 import { StyledSwitchButton, StyledFlex_center } from "../styles/Styled";
+import { useContext } from "react";
 import { IoSunnyOutline } from "react-icons/io5";
 import { PiMoon } from "react-icons/pi";
-// import { useContext } from "react";
-// import GlobalState from "../context";
+import GlobalState from "../contexts/Context";
 
 const SwitchButton = () => {
-  //   const { mode, setMode } = useContext(GlobalState);
+  const { mode, setMode } = useContext(GlobalState);
 
-  //   const handleModeChange = () => {
-  //     setMode(mode === "light" ? "dark" : "light");
-  //   };
+  const handleModeChange = () => {
+    setMode(mode === "light" ? "dark" : "light");
+  };
 
   return (
     <StyledFlex_center>
@@ -18,12 +18,11 @@ const SwitchButton = () => {
       </label>
       <StyledSwitchButton
         type="checkbox"
-        // checked={mode === "dark"}
+        checked={mode === "dark" ? true : false}
         id="switch"
-        defaultChecked={false}
-        // onChange={() => {
-        //   handleModeChange();
-        // }}
+        onChange={() => {
+          handleModeChange();
+        }}
       />
       <label htmlFor="switch">
         <PiMoon />

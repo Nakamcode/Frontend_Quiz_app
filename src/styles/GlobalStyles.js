@@ -11,8 +11,8 @@ export const GlobalStyles = createGlobalStyle`
   body {
     font-optical-sizing: auto;
     font-style: normal;
-    background-color: var(--c6); 
-    color: black; 
+    background-color: ${(props) => props.theme.colors.background};
+    color: ${(props) => props.theme.colors.text};
     margin: 0;
     padding: 0;
     font-family: "Rubik", sans-serif;
