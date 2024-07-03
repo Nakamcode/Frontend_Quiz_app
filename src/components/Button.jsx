@@ -12,14 +12,8 @@ const Option = ({
   index,
   submitted,
 }) => {
-  // console.log({ submitted, status, selectedAnswer, correctAnswer, index });
   return (
-    <StyledButton
-      selected={selected}
-      submitted={submitted?.toString()}
-      status={status}
-      onClick={onClick}
-    >
+    <StyledButton selected={selected} $status={status} onClick={onClick}>
       <div className={`ans ${selected ? "selected" : ""} `}>
         {option ? (
           <div

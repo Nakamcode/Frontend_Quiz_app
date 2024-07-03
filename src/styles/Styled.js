@@ -101,8 +101,8 @@ const StyledButton = styled.button`
   transition: all 150ms;
 
   outline-color: ${(props) => {
-    if (props.status === "correct") return "var(--c8)";
-    if (props.status === "wrong") return "var(--c9)";
+    if (props.$status === "correct") return "var(--c8)";
+    if (props.$status === "wrong") return "var(--c9)";
     return "none";
   }};
 
