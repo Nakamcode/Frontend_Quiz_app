@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { shakeX, bounceIn, fadeIn } from "./Keyframes";
 
 const theme = {
   light: {
@@ -48,6 +49,9 @@ const StyledTitle = styled.div`
   font-size: 18px;
   font-weight: 500;
   color: ${(props) => props.theme.colors.text};
+  ${css`
+    animation: ${bounceIn} 500ms ease-in-out;
+  `}
 `;
 
 const StyledNavBar = styled.nav`
@@ -133,6 +137,13 @@ const StyledButton = styled.button`
     .wrong {
       background-color: var(--c9);
     }
+
+    // Apply the shakeX animation when the selected answer is wrong
+    ${({ $status }) =>
+      $status === "wrong" &&
+      css`
+        animation: ${shakeX} 500ms ease-in-out;
+      `}
   }
 
   &:active {
@@ -259,6 +270,9 @@ const StyledWelcomeMessage = styled.div`
     margin-top: 40px;
     color: ${(props) => props.theme.colors.textSecondary};
   }
+  ${css`
+    animation: ${fadeIn} 500ms ease-in-out;
+  `}
 `;
 
 const StyledResult = styled.div`
