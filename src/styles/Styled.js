@@ -100,7 +100,8 @@ const StyledButton = styled.button`
   color: ${(props) => props.theme.colors.text};
   border: none;
   border-radius: 15px;
-  outline: ${(props) => props.selected && `2px solid var(--c1)`};
+  outline: ${(props) => props.selected && `2px auto var(--c1)`};
+  outline-style: auto
   box-shadow: ${(props) => props.theme.boxShadow};
   transition: all 150ms;
 
