@@ -17,6 +17,7 @@ const SwitchButton = () => {
         <IoSunnyOutline />
       </label>
       <StyledSwitchButton
+        aria-label="Switch"
         type="checkbox"
         checked={mode === "dark" ? true : false}
         id="switch"
