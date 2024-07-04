@@ -2,6 +2,11 @@
 
 This is my submission for the Amalitech NSP training program. I have implemented all the UI components presented in the design file, along with their functionalities as described in the project scope.
 
+## Links
+
+- Live - https://frontend-amalitech.netlify.app/
+- Github - https://github.com/Nakamcode/Frontend_Quiz_app
+
 ## Lighthouse Report
 
 This is the Lighthouse report of the web application, focusing on accessibility, best practices, and performance.
