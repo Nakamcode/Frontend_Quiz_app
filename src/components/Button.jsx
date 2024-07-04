@@ -12,18 +12,23 @@ const Option = ({
   index,
   submitted,
 }) => {
+  // Function to dynamically import images
+  // All the names comes in Uppercase
+  const getImageUrl = (iconName) =>
+    new URL(
+      `../assets/icons/${iconName.toLocaleLowerCase()}.svg`,
+      import.meta.url
+    ).href;
+
   return (
     <StyledButton selected={selected} $status={status} onClick={onClick}>
       <div className={`ans ${selected ? "selected" : ""} `}>
         {option ? (
-          <div
-            className={`option ${submitted === false && status}
-          `}
-          >
+          <div className={`option ${submitted === false && status}`}>
             {option}
           </div>
         ) : (
-          <img src={`./src/assets/icons/${icon}.svg`} alt={`${icon} icon`} />
+          <img src={getImageUrl(icon)} alt={`${icon} icon`} />
         )}
         {title}
       </div>
@@ -34,9 +39,7 @@ const Option = ({
             className={`${correctAnswer === index ? "correct" : status} check`}
           >
             <img
-              src={`./src/assets/icons/${
-                correctAnswer === index ? "correct" : status
-              }.svg`}
+              src={getImageUrl(correctAnswer === index ? "correct" : status)}
             />
           </div>
         )}
