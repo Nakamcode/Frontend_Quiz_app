@@ -7,7 +7,15 @@ const Provider = ({ children }) => {
   const [startQuiz, setStartQuiz] = useState(false);
   const [endQuiz, setEndQuiz] = useState(false);
   const [quizCount, setQuizCount] = useState(0);
-  const [mode, setMode] = useState("light");
+  const [mode, setMode] = useState(() => {
+    const storedMode = localStorage.getItem("mode");
+    return storedMode ? JSON.parse(storedMode) : "light";
+  });
+
+  const [visited, setVisited] = useState(() => {
+    const storeVisited = localStorage.getItem("visited");
+    return storeVisited ? JSON.parse(storeVisited) : false;
+  });
 
   return (
     <GlobalState.Provider
@@ -24,6 +32,8 @@ const Provider = ({ children }) => {
         setQuizCount,
         mode,
         setMode,
+        visited,
+        setVisited,
       }}
     >
       {children}

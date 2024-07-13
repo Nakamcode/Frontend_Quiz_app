@@ -5,10 +5,12 @@ import { PiMoon } from "react-icons/pi";
 import GlobalState from "../contexts/Context";
 
 const SwitchButton = () => {
-  const { mode, setMode } = useContext(GlobalState);
+  const { mode, setMode, visited, setVisited } = useContext(GlobalState);
 
   const handleModeChange = () => {
     setMode(mode === "light" ? "dark" : "light");
+    setVisited(true);
+    localStorage.setItem("visited", JSON.stringify(visited));
   };
 
   return (

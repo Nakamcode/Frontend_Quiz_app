@@ -12,12 +12,22 @@ function App() {
   const { mode, setMode } = useContext(GlobalState);
   const currentTheme = theme[mode] || theme.light;
 
+  const { visited, setVisited } = useContext(GlobalState);
+
   useEffect(() => {
     const userThemePreference = window.matchMedia(
       "(prefers-color-scheme: dark)"
     ).matches;
-    setMode(userThemePreference ? "dark" : "light");
+
+    if (!visited) {
+      setMode(userThemePreference ? "dark" : "light");
+      setVisited(true);
+    }
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("mode", JSON.stringify(mode));
+  }, [mode]);
 
   return (
     <ThemeProvider theme={currentTheme}>
@@ -34,3 +44,36 @@ function App() {
 }
 
 export default App;
+
+/*
+
+function Counter() {
+	const [count, setCount] = useState(() => {
+		const storedCount = localStorage.getItem('count');
+		return storedCount ? parseInt(storedCount) : 0;
+	});
+
+	useEffect(() => {
+		localStorage.setItem('count', count.toString());
+	}, [count]);
+
+	const increment = () => {
+		setCount(prevCount => prevCount + 1);
+	};
+
+	const decrement = () => {
+		setCount(prevCount => prevCount - 1);
+	};
+
+	return (
+		<div>
+			<h1>Counter: {count}</h1>
+			<button onClick={increment}>Increment</button>
+			<button onClick={decrement}>Decrement</button>
+		</div>
+	);
+}
+
+export default Counter;
+
+*/
