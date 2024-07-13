@@ -32,6 +32,14 @@ const Options = ({ answers }) => {
     setSubmit(true);
   };
 
+  const handleDisableState = (selectedAnswer) => {
+    if (typeof selectedAnswer === "number") {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
   const keys = ["A", "B", "C", "D"];
 
   return (
@@ -54,6 +62,7 @@ const Options = ({ answers }) => {
       ))}
       <Button_2
         name={submit ? "Submit Answer" : "Next Question"}
+        disable={handleDisableState(selectedAnswer)}
         onClick={() => {
           handleSubmitOnclick();
         }}

@@ -177,9 +177,20 @@ const StyledSubmitButton = styled.button`
   box-shadow: ${(props) => props.theme.boxShadow};
   transition: all 150ms;
 
+  &:disabled {
+    --opacity: 0.5;
+    opacity: var(--opacity);
+
+    &:hover,
+    &:active {
+      opacity: var(--opacity);
+    }
+  }
+
   &:hover,
   &:active {
-    opacity: 0.7;
+    /* opacity: 0.85; */
+    background-color: #ba51fb;
     transition: all 150ms;
   }
 `;
