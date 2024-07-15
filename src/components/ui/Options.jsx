@@ -2,7 +2,7 @@ import Button from "../Button";
 import Button_2 from "../Button_2";
 import { StyledFlexStackColumn } from "../../styles/Styled";
 import GlobalState from "../../contexts/Context";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 
 const Options = ({ answers }) => {
   const { quizCount, setQuizCount } = useContext(GlobalState);
@@ -11,6 +11,7 @@ const Options = ({ answers }) => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const currentAnswer = answers[quizCount]?.correctAnswer;
   const [status, setStatus] = useState(null);
+  const [buttonName, setButtonName] = useState("Submit Answer");
 
   const handleSubmitOnclick = () => {
     const status = currentAnswer === selectedAnswer ? "correct" : "wrong";
@@ -33,12 +34,19 @@ const Options = ({ answers }) => {
   };
 
   const handleDisableState = (selectedAnswer) => {
-    if (typeof selectedAnswer === "number") {
-      return false;
-    } else {
-      return true;
-    }
+    return typeof selectedAnswer !== "number";
   };
+
+  useEffect(() => {
+    const isLastAnswer = quizCount === answers.length - 1;
+    if (isLastAnswer && !submit) {
+      setButtonName("Result");
+    } else if (!submit) {
+      setButtonName("Next Question");
+    } else {
+      setButtonName("Submit Answer");
+    }
+  }, [submit, quizCount, answers.length]);
 
   const keys = ["A", "B", "C", "D"];
 
@@ -61,7 +69,7 @@ const Options = ({ answers }) => {
         />
       ))}
       <Button_2
-        name={submit ? "Submit Answer" : "Next Question"}
+        name={buttonName}
         disable={handleDisableState(selectedAnswer)}
         onClick={() => {
           handleSubmitOnclick();
